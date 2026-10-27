@@ -20,8 +20,9 @@ cat > "$work/manifest.json" <<JSON
 {"format":1,"version":"$VER","compatible_builds":$COMPAT,"files":$files_json}
 JSON
 mkdir -p "$OUT"
-zip="$OUT/kernel-$VER.zip"
-( cd "$work" && zip -q -X "$zip" manifest.json "$@" 2>/dev/null || zip -q -X "$zip" manifest.json $(for s in "$@"; do basename "$s"; done) )
+zip="$OUT/kernel-$VER.zip"; rm -f "$zip"
+names=$(for s in "$@"; do basename "$s"; done)
+( cd "$work" && zip -q -X "$zip" manifest.json $names )
 zsz=$(stat -c %s "$zip"); zsh=$(sha256sum "$zip" | cut -d' ' -f1)
 echo "ZIP=$zip"
 echo "SIZE=$zsz"

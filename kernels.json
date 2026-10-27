@@ -1,5 +1,15 @@
 {
   "format": 1,
   "base_url": "https://github.com/andr36oid/kernel-releases/releases/download/kernel-updates/",
-  "kernels": []
+  "kernels": [
+    {
+      "version": "1.1.0",
+      "title": "Btrfs subsystem support",
+      "description": "Adds the btrfs filesystem so the console can mount the dArkOSen subsystem image for EmulationStation and PortMaster. Same kernel version and modules as the 2026-10-24 release, so wifi, Bluetooth and everything else keep working. Apps, settings, saves and games stay in place.",
+      "file": "kernel-1.1.0.zip",
+      "size": 7806150,
+      "sha256": "d57ac96446bdea2e581a8c7ff800cca7c438ef74b48980dc94a33c0411885c9d",
+      "compatible_builds": ["v2026-10-24-release|eng.kenny.20261024.175043"]
+    }
+  ]
 }
