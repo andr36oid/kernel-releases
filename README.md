@@ -5,9 +5,13 @@ when a console's build has a newer compatible kernel listed, offers to write jus
 kernel into the card's BOOT partition (no full reflash). Assets are GitHub release downloads
 in this repo. No GitHub credentials are needed to read the index.
 
-`kernels.json` starts empty, so the flasher finds no update and does nothing. Publishing a
-kernel is a deliberate step (see below), because the kernel has to keep the exact vendor
-module ABI and device trees of the builds it targets.
+`kernels.json` currently lists kernel 1.1.0 (btrfs for the dArkOSen subsystem), built for
+the 2026-10-24 release. It is the same kernel version with the same module ABI and device
+trees as that build (only the btrfs filesystem is added, which does not change the kernel
+version string), so the console's existing wifi, Bluetooth and other drivers keep loading.
+Publishing a kernel is a deliberate step (see below): a kernel must keep the exact vendor
+module ABI (same version string, since modules are not CRC-versioned here) and device trees
+of every build it lists in compatible_builds.
 
 ## Publishing a kernel update
 
